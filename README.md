@@ -1,44 +1,29 @@
-# NLP_Project
-## Dataset used: 
-YouTube channel “الدحيح”, all the episodes in the folder, in addition to the annotations included.
+## *NOTE*
+*Each project milestone includes a detailed report (PDF) in its respective directory that documents the methodology, implementation details, and results. Please refer to these reports for comprehensive information about each phase of the project.*
 
-## Task chosen to preprocess the data for:
-Topic classification, based on the episode’s title and script.
+## Project Milestones:
 
-## How the data is read:
-Made a dictionary containing 3 lists: one for the filename, the content (script of each episode), and the annotations of each episode.
+### Milestone 1: Data Preprocessing and Analysis
+- Cleaned and preprocessed "الدحيح" YouTube channel scripts and metadata
+- Performed text normalization for Arabic text including diacritic removal
+- Implemented custom stopword removal for Arabic language
+- Conducted exploratory data analysis on episode popularity metrics
+- Analyzed text statistics including word frequencies and TF-IDF 
+- Created visualizations to understand content distribution and features
 
-## Cleaning techniques done:
-1-  Dropped the annotation file named “اميتاب بتشان” because it didn’t contain a script, only the annotations for the episode.
+### Milestone 2: Question Answering Model Development
+- Implemented various neural network architectures for question answering
+- Trained models on the SQuAD dataset for transferable knowledge
+- Created encoder-decoder architectures with attention mechanisms
+- Experimented with different model configurations (LSTM, Transformer)
+- Evaluated models using accuracy and other relevant metrics
+- Generated visualizations to track model performance across training epochs
 
-2- Cleaned the timestamp beside each line that indicated in which minute in the video this statement was said.
-
-3- Removed [موسيقي] token that was at the beginning of each episode.
-
-4- Normalized the text to standardize variations in letter forms, such as unifying "ه" and "ة" or "ي" and "ى".
-
-5- Removed the diacritics to prevent the words from falling outside the vocabulary when training our machine/deep learning model.
-
-6- Removed the punctuation because they do not add meaningful information for classification.
-
-7- Removed the empty lines.
-
-8- A customized set of stop words was removed. Didn’t use the one in NLTK library because it was aggressive, removing words that could change the context, like “ليس”. Although this wouldn’t matter in the task chosen to be done. It would matter if I was planning to do sentiment analysis, for example.
-
-9- Joined text to be concatenated into a single line instead of being broken by newline characters.
-
-10 - Removed unnecessary spaces in each filename.
-
-11- Removed "الدحيح" at the end of each filename.
-
-## Data analysis and insights gained:
-1- It was observed that the top 5 most liked episodes are the ones narrating a story, while the episodes with the highest comments are the ones discussing a controversial topic, like “الماسونيه” for example.
-
-2- The most occurring words were “عزيزي” and “ابو حميد” which could be guessed easily since they’re considered a signature for el daheeh.
-
-3- The dataset's categories primarily acted as general keywords rather than structured classification labels, so they were unimportant.
-
-4- TF-IDF vs word count: TF-IDF was done to extract numerical representations of episode scripts, enabling analysis of word importance across documents. Also, absolute word counts were computed, and it was observed that words with a high count in a document tend to have a low weight in that same document.
-
-5- The correlation between the likes, views, and comments was high, which is expected.
-
+### Milestone 3: Question Answering with RAG (Zero-shot vs. COT)
+- Implemented Retrieval-Augmented Generation (RAG) techniques
+- Developed document retrieval system for contextual question answering
+- Integrated memory capabilities for multi-turn conversations
+- Evaluated system performance using ROUGE metrics
+- Implemented two distinct prompting approaches:
+    - Zero-shot prompting: Direct question answering based on retrieved context
+    - Chain of Thought (CoT) prompting: Step-by-step reasoning before providing the answer
